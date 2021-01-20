@@ -7,8 +7,8 @@ const url = 'https://www.ninjakitchen.com/parts/0/all/1336/precision-processor-b
 const transporter = nodemailer.createTransport({
   service: 'example',
   auth: {
-    user: 'email@example.com',
-    pass: 'example-Password1234'
+    user: process.env.SCRAPE_EMAIL,
+    pass: process.env.SCRAPE_PASS
   }
 });
 
@@ -24,8 +24,8 @@ const email = (options) => {
 
 const sendNotAvailable = () => {
   const notAvailOptions = {
-    from: 'email@example.com',
-    to: 'email2@exmaple.com',
+    from: process.env.SCRAPE_EMAIL,
+    to: process.env.SCRAPE_EMAIL_TO,
     subject: 'Ninja part not available',
     text: `It is not available now. Go here to confirm ${url}`
   };
@@ -34,8 +34,8 @@ const sendNotAvailable = () => {
 
 const sendError = (err) => {
   const errorMailOptions = {
-    from: 'email@example.com',
-    to: 'email2@exmaple.com',
+    from: process.env.SCRAPE_EMAIL,
+    to: process.env.SCRAPE_EMAIL_TO,
     subject: 'Scraper App Error',
     text: `Something went wrong. Login to Heroku for more details. Here is error: ${err}`
   };
@@ -44,8 +44,8 @@ const sendError = (err) => {
 
 const sendAvailable = () => {
   const availOptions = {
-    from: 'email@example.com',
-    to: 'email2@exmaple.com',
+    from: process.env.SCRAPE_EMAIL,
+    to: process.env.SCRAPE_EMAIL_TO,
     subject: 'Ninja part availability',
     text: `It may be available now! Go here ${url}`
   }
