@@ -20,8 +20,6 @@ Then run
 
 Then, either set your environment variables in a .bashrc or .bash_profile, or simply hardcode your email authentication information into scraper.js.
 
-Then - 
+Then -
 
 `npm run start`
-
-
